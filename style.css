@@ -1,0 +1,184 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+:root {
+    --bg-main: #110303;       
+    --bg-card: #1c0606;       
+    --bg-card-hover: #290a0a; 
+    --accent-red: #521212;    
+    --hover-red: #8c1c1c;     
+    --text-light: #f5eaea;    
+    --text-muted: #bda5a5;    
+    --gold: #ffb700;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    overflow-x: hidden;
+    line-height: 1.7;
+    display: block;
+}
+
+/* Navbar */
+nav {
+    background-color: rgba(17, 3, 3, 0.98);
+    border-bottom: 2px solid var(--accent-red);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: table;
+    width: 100%;
+    padding: 20px;
+}
+
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text-light);
+    text-shadow: 0 0 15px var(--hover-red);
+}
+
+.logo span {
+    color: var(--hover-red);
+}
+
+.nav-links {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: var(--transition);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-light);
+    background-color: rgba(140, 28, 28, 0.15);
+    text-shadow: 0 0 10px var(--hover-red);
+}
+
+/* Containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 20px 80px 20px;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--text-light);
+    text-shadow: 0 0 20px rgba(140, 28, 28, 0.5);
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background-color: var(--hover-red);
+    margin: 15px auto 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 0 12px var(--hover-red);
+}
+
+/* Layout Table System */
+.row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 25px;
+}
+
+.col-2 { display: table-cell; width: 50%; vertical-align: top; }
+.col-3 { display: table-cell; width: 33.33%; vertical-align: top; }
+.col-4 { display: table-cell; width: 25%; vertical-align: top; }
+
+/* Components */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(82, 18, 18, 0.6);
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--hover-red);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(140, 28, 28, 0.2);
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-red), var(--hover-red));
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px var(--hover-red);
+}
+
+/* Footer */
+footer {
+    background-color: #070101;
+    text-align: center;
+    padding: 30px;
+    font-size: 15px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--accent-red);
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .row, .col-2, .col-3, .col-4, .nav-container, .logo, .nav-links {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        border-spacing: 0 !important;
+    }
+    .nav-links { margin-top: 20px; }
+    .nav-links a { margin: 5px; display: inline-block; font-size: 14px; }
+    .card { margin-bottom: 25px; }
+    .container { padding-top: 180px; }
+}
